@@ -1,5 +1,5 @@
-import './claim-profile.scss';
-import React, { useState } from 'react';
+import "./claim-profile.scss";
+import React, { useState } from "react";
 import {
   MDBCard,
   MDBCardBody,
@@ -7,11 +7,11 @@ import {
   MDBCardText,
   MDBRow,
   MDBCol,
-} from 'mdbreact';
-import { Route, Link } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-import { ClaimProfileData } from './claim-profile-data';
-import { AladdinCard } from '@aladdin/ui-kit';
+} from "mdbreact";
+import { Route, Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { ClaimProfileData } from "./claim-profile-data";
+import { AladdinCard } from "@aladdin/ui-kit";
 
 /* Things to do:
 - click handler for the rows and pagination 
@@ -26,11 +26,13 @@ export interface ClaimProfileProps {
 export const ClaimProfile: React.FC = () => {
   return (
     <AladdinCard className="claim-profile-card" fullWidth>
-      <h2 className="text-left m-auto pt-3 pb-md-5 pb-lg-0">
-        Current Promo Code
-      </h2>
-      <MDBRow>
-        <MDBCol className="claim-profile-col align-self-center" xl="3" lg="6">
+      <MDBRow className="py-3">
+        <MDBCol
+          className="claim-profile-col align-self-center"
+          xl="3"
+          lg="6"
+          md="6"
+        >
           <MDBCard className="claim-card">
             <MDBCardImage
               className="blue-gradient white-text d-flex justify-content-center align-items-center flex-column rounded "
@@ -54,6 +56,7 @@ export const ClaimProfile: React.FC = () => {
           xl="9"
           className="claim-data-table d-flex justify-content-end py-md-5 py-lg-0"
           lg="6"
+          md="6"
         >
           <ClaimProfileData />
         </MDBCol>

@@ -1,5 +1,5 @@
 import "./view-project.scss";
-import React from "react";
+import React, { useState } from "react";
 import {
   AladdinButton,
   AladdinCard,
@@ -24,26 +24,64 @@ api get request to retrieve project id information
 
 export const ViewProject: React.FC = (props) => {
   const { onSubmit, control } = customUseForm<IDropdownSelector>([]);
-
-  const fakeData = {
-    header: ["Sequence Name", "Sequence Set", "Date", "Stuff"],
-    body: [
+  const [datatable, setDatatable] = useState({
+    columns: [
       {
-        id: "1",
-        name: "Sars",
-        sequenceSet: "Test_One",
-        date: "12-22-22",
-        anything: "anything",
+        label: "KIT",
+        field: "kit",
+        width: 150,
+        attributes: {
+          "aria-controls": "DataTable",
+          "aria-label": "Kit",
+        },
       },
       {
-        id: "2",
-        name: "Covid",
-        sequenceSet: "Test_Two",
-        date: "12-21-22",
-        something: "something",
+        label: "Type",
+        field: "type",
+        width: 270,
+      },
+      {
+        label: "Code",
+        field: "code",
+        width: 200,
+      },
+      {
+        label: "Active",
+        field: "active",
+        sort: "asc",
+        width: 100,
+      },
+      {
+        label: "Expires",
+        field: "expires",
+        sort: "disabled",
+        width: 150,
       },
     ],
-  };
+    rows: [
+      {
+        kit: "Tiger Nixon",
+        type: "System Architect",
+        code: "Edinburgh",
+        active: "61",
+        expires: "2011/04/25",
+      },
+      {
+        kit: "Garrett Winters",
+        type: "Accountant",
+        code: "Tokyo",
+        active: "61",
+        expires: "2011/04/25",
+      },
+      {
+        kit: "Ashton Cox",
+        type: "Junior Technical Author",
+        code: "San Francisco",
+        active: "61",
+        expires: "2011/04/25",
+      },
+    ],
+  });
   return (
     <>
       <MDBRow className="project-header-container d-flex">
@@ -109,12 +147,19 @@ export const ViewProject: React.FC = (props) => {
         </div>
 
         <AladdinTables
+          responsive
+          searching={false}
+          autoWidth={true}
+          borderless={true}
           classes=" my-3"
           color="primary"
           striped
-          borderless
-          headerList={fakeData.header}
-          bodyList={fakeData.body}
+          scroll={true}
+          sortable={false}
+          displayEntries={false}
+          entriesOptions={[3, 5, 10]}
+          pagesAmount={5}
+          data={datatable}
         ></AladdinTables>
       </AladdinCard>
       <AladdinCard classes="project-card-table">
@@ -137,12 +182,19 @@ export const ViewProject: React.FC = (props) => {
           </AladdinButton>
         </div>
         <AladdinTables
+          responsive
+          searching={false}
+          autoWidth={true}
+          borderless={true}
           classes=" my-3"
           color="primary"
           striped
-          borderless
-          headerList={fakeData.header}
-          bodyList={fakeData.body}
+          scroll={false}
+          sortable={false}
+          displayEntries={false}
+          entriesOptions={[3, 5, 10]}
+          pagesAmount={5}
+          data={datatable}
         ></AladdinTables>
       </AladdinCard>
     </>
