@@ -1,0 +1,1 @@
+/* Create a base API to generate a static request */
