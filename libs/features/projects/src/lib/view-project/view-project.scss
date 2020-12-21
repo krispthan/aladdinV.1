@@ -1,0 +1,42 @@
+$main-color: #3d1a85;
+
+.project-header-container {
+  .project-side-description-container {
+    color: $main-color;
+  }
+  .dropdown-header {
+    padding: 0.5rem 0;
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
+.project-card-table {
+  width: 700px;
+  .sample-table-create-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.1rem 1.5rem;
+    a {
+      font-size: 0.9rem;
+      color: white;
+    }
+  }
+
+  p {
+    font-weight: 300;
+    font-size: 0.8rem;
+  }
+}
+.sample-analysis-table {
+  .main-btn {
+    a {
+      font-size: 0.9rem;
+      color: white;
+    }
+  }
+  p {
+    font-weight: 300;
+  }
+}

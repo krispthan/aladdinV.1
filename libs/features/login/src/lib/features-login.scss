@@ -1,0 +1,71 @@
+$main-color: #3d1a85;
+
+.forgot-password-container {
+  display: flex;
+  justify-content: flex-end;
+  a {
+    color: black;
+    span {
+      font-weight: 300;
+    }
+  }
+}
+
+.login-container {
+  h3 {
+    font-weight: 500;
+  }
+  .login-card {
+    border-radius: 0.5rem;
+
+    .card-body {
+      padding: 1rem 1.25rem 1.25rem 1.25rem;
+    }
+
+    .md-form.md-outline.form-sm .form-control.form-control-sm {
+      padding: 0.5rem 6.75rem;
+    }
+
+    .forgot-password-message {
+      padding-right: 20px;
+    }
+    .form-check {
+      padding-left: 0;
+      display: flex;
+      justify-content: flex-end;
+      .external-link-text {
+        color: $main-color;
+      }
+    }
+    .error-message-icon {
+      font-weight: 900;
+      font-size: 0.7rem;
+    }
+
+    .error-message {
+      position: relative;
+      bottom: 0px;
+      font-size: 0.8rem;
+    }
+    @media only screen and (max-width: 920px) {
+      .md-form.md-outline label {
+        font-size: 0.8rem;
+      }
+    }
+    .form-check-input[type='checkbox'] + label,
+    label.btn input[type='checkbox'] + label {
+      position: relative;
+      bottom: 2px;
+      display: inline-block;
+      height: 1.5625rem;
+      padding-left: 28px;
+      line-height: 0;
+      cursor: pointer;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .remember-message {
+      font-size: 0.8rem;
+    }
+  }
+}

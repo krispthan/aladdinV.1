@@ -1,0 +1,31 @@
+$main-purple: #3d1a85;
+$secondary-purple: #ede7f6;
+.footer-logo {
+  align-self: flex-end;
+}
+.social-contacts-col {
+  align-self: flex-end;
+  .social-contacts {
+    list-style: none;
+    display: flex;
+    font-size: 1rem;
+    li {
+      padding-right: 1rem;
+    }
+  }
+}
+
+footer.page-footer {
+  bottom: 0;
+  color: #fff;
+  //position: fixed;
+  width: 100%;
+}
+a {
+  color: $main-purple;
+}
+.copyright-footer {
+  overflow: hidden;
+  color: $main-purple;
+  background-color: $secondary-purple;
+}

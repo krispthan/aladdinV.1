@@ -1,0 +1,23 @@
+.dashboard-nav-container {
+  // border-right: 2px dotted purple;
+  // list-style-type: none;
+  // height: 60%;
+  ul {
+    list-style: none;
+    a {
+      font-size: 1rem;
+      @media only screen and (min-width: 920px) {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  .vertical-line {
+    border-right: 2px dotted purple;
+  }
+}
+.nav-separator {
+  width: 0px; /* Use only border style */
+  height: 80%;
+  float: right;
+  border: 1px dotted purple;
+}

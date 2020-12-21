@@ -1,0 +1,16 @@
+.app {
+  #root {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  h1 {
+    font-size: 1.75rem;
+    margin: 1rem 0rem;
+    color: #0d0e0d;
+  }
+  @media only screen and (max-width: 768px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+}

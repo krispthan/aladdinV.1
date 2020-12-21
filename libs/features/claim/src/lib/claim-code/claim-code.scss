@@ -1,0 +1,21 @@
+$main-black: #0d0e0d;
+.claim-code-card {
+  p {
+    color: $main-black;
+    font-size: 1.3rem;
+  }
+  h5 {
+    font-size: 1.2rem;
+  }
+  .error-text {
+    position: relative;
+    font-size: 0.8rem;
+  }
+}
+/**** Form *****/
+.claim-code-form {
+  .md-form {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

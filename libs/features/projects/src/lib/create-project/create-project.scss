@@ -1,0 +1,13 @@
+.project-form-container {
+  .project-form {
+    display: grid;
+    grid-template-columns: repeat(2, 350px);
+  }
+  .create-project-input {
+    padding: 0.4rem 5rem !important;
+  }
+
+  .text-area-form {
+    padding: 1rem 5rem !important;
+  }
+}

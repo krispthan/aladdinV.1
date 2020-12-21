@@ -1,0 +1,14 @@
+/**** Multiple Dropdown Selectors *****/
+.multiple-samples-selector {
+  margin-top: 0;
+  margin-bottom: 0;
+  .dropdown-content li > a,
+  .dropdown-content li > span {
+    display: block;
+    padding: 0.8rem 0;
+    color: #4285f4;
+  }
+  .dropdown-content {
+    top: 2.4rem !important;
+  }
+}

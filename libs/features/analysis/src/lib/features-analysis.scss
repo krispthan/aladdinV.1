@@ -1,0 +1,92 @@
+.analysis-wrapper {
+  .vertical-line {
+    border-left: 2px solid #bbbb;
+    height: 500px;
+  }
+  .create-analysis-container {
+    p {
+      bottom: 7px;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+  // .action-sample-container {
+  //   justify-content: flex-end;
+  //   .success {
+  //     padding: 0.3rem 4rem;
+  //     background-color: #e6e1ef;
+  //   }
+  //   .fa-plus-square,
+  //   .fa-minus-square {
+  //     position: relative;
+  //     top: 4px;
+  //   }
+  // }
+  /**** Dropdown table ****/
+  .project-dropdown-menu .show {
+    transform: translate3d(0px, 80px, 0px) !important;
+  }
+  .dropdown-header {
+    padding: 0;
+  }
+  .dropdown-header h1 {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .control-group-btn {
+    padding: 0.3rem 2.5rem;
+  }
+  .run-analysis-container {
+    justify-content: flex-end;
+  }
+
+  /**** Table ****/
+  table.mdb-dataTable thead,
+  table thead.mdb-dataTable-head {
+    cursor: pointer;
+    background: #e6e1ef;
+  }
+  table.table th,
+  table.table td {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  .table thead th {
+    vertical-align: middle;
+    border-bottom: 2px solid #dee2e6;
+  }
+  form-check-input[type='checkbox'] + label,
+  label.btn input[type='checkbox'] + label {
+    height: 1.5rem;
+  }
+
+  /**** Input Form ****/
+
+  .input-group > .form-control,
+  .input-group > .form-control-plaintext {
+    position: relative;
+    flex: none;
+    min-width: 0;
+    margin-bottom: 0;
+  }
+  .input-group {
+    justify-content: flex-end;
+  }
+  .form-control {
+    padding: 0.5rem;
+    height: calc(1.2em + 0.5rem + 0px);
+  }
+  .control-group-btn {
+    position: relative;
+    z-index: 2;
+    bottom: 9px;
+    padding: 0.3rem 1.14rem;
+    font-size: 0.6rem;
+  }
+
+  .btn[class*='btn-outline-'] {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}

@@ -1,0 +1,19 @@
+$main-purple: #3d1a85;
+.full-height {
+  height: 100%;
+  position: relative;
+}
+.account-main-container {
+  .card {
+    color: $main-purple;
+    .card-body {
+      .account-card-content {
+        font-size: 1.2rem;
+        cursor: pointer;
+        a {
+          color: $main-purple;
+        }
+      }
+    }
+  }
+}

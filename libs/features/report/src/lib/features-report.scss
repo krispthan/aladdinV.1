@@ -1,0 +1,15 @@
+$main-purple: #573393;
+
+.report-container {
+  .fa-file-contract {
+    position: relative;
+    top: 23px;
+    color: $main-purple;
+  }
+  /**** Modal ****/
+  .report-content {
+    ul {
+      list-style: none;
+    }
+  }
+}

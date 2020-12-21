@@ -1,0 +1,7 @@
+.list-group-item {
+  border: none;
+}
+.list-group-item:focus,
+.list-group-item:hover {
+  z-index: 0;
+}

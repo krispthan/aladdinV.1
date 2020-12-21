@@ -1,0 +1,55 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "types": ["googlemaps"],
+    "module": "esnext",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@aladdin/data-access/authentication": [
+        "libs/data-access/authentication/src/index.ts"
+      ],
+      "@aladdin/data-uri": ["libs/data-uri/src/index.ts"],
+      "@aladdin/domain-models": ["libs/domain-models/src/index.ts"],
+      "@aladdin/features/projects": ["libs/features/projects/src/index.ts"],
+      "@aladdin/features/master-page": [
+        "libs/features/master-page/src/index.ts"
+      ],
+      "@aladdin/features/settings": ["libs/features/settings/src/index.ts"],
+      "@aladdin/features/login": ["libs/features/login/src/index.ts"],
+      "@aladdin/features/upload-data": [
+        "libs/features/upload-data/src/index.ts"
+      ],
+      "@aladdin/features/manage-samples": [
+        "libs/features/manage-samples/src/index.ts"
+      ],
+      "@aladdin/features/analysis": ["libs/features/analysis/src/index.ts"],
+      "@aladdin/features/report": ["libs/features/report/src/index.ts"],
+      "@aladdin/features/dashboard": ["libs/features/dashboard/src/index.ts"],
+      "@aladdin/ui-kit": ["libs/ui-kit/src/index.ts"],
+      "@aladdin/utitlities": ["libs/utitlities/src/index.ts"],
+      "@aladdin/features/about": ["libs/features/about/src/index.ts"],
+      "@aladdin/features/faq": ["libs/features/faq/src/index.ts"],
+      "@aladdin/features/resources": ["libs/features/resources/src/index.ts"],
+      "@aladdin/features/contact-us": ["libs/features/contact-us/src/index.ts"],
+      "@aladdin/features/sequencer": ["libs/features/sequencer/src/index.ts"],
+      "@aladdin/features/home": ["libs/features/home/src/index.ts"],
+      "@aladdin/features/claim": ["libs/features/claim/src/index.ts"],
+      "@aladdin/features/register": ["libs/features/register/src/index.ts"],
+      "@aladdin/shared/forms": ["libs/shared/forms/src/index.ts"],
+      "@aladdin/shared/modals": ["libs/shared/modals/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

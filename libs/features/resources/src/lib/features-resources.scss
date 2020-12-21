@@ -1,0 +1,21 @@
+$main-purple: #3d1a85;
+.resources-container {
+  width: auto;
+  .resources-card {
+    height: 500px;
+    position: relative;
+    top: 50px;
+  }
+
+  .caret-container {
+    display: none;
+    @media only screen and (min-width: 768px) {
+      display: inline-block;
+    }
+    .caret-icon {
+      position: absolute;
+      top: 50%;
+      color: $main-purple;
+    }
+  }
+}

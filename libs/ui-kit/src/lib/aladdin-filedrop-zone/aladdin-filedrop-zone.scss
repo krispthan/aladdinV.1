@@ -1,0 +1,41 @@
+$main-purple: #573393;
+
+.file-dropzone-container {
+  border: 4px dashed $main-purple;
+  height: 200px;
+  width: 300px;
+  @media only screen and (max-width: 1120px) {
+    width: 100%;
+  }
+  .fa-file-upload {
+    color: #bbbbbb;
+  }
+
+  p span {
+    font-size: 1.1rem;
+    color: $main-purple;
+  }
+}
+
+.file-dropzone-container > div:first-child {
+  height: 200px;
+}
+
+.file-dropzone-container > div:first-child:focus {
+  outline: none;
+}
+.accepted-files {
+  height: 40px;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: $main-purple;
+  color: white;
+  border-radius: 5px;
+  display: block;
+  .close-files {
+    font-size: 1.2rem;
+    color: #bbbbbb;
+    top: 10px;
+    position: relative;
+  }
+}

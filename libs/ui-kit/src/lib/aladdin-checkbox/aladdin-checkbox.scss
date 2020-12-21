@@ -1,0 +1,13 @@
+[type='checkbox']:not(:checked),
+[type='checkbox']:checked {
+  &.aladdin-checkbox {
+    position: relative;
+    opacity: 1;
+    z-index: 1;
+    pointer-events: auto;
+    width: 17px;
+    height: 17px;
+    border-radius: 0.3rem;
+    margin-right: 0.5rem;
+  }
+}

@@ -1,0 +1,11 @@
+/* This will hold all the imports of the different styles  */
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+@import 'mdbreact/dist/css/mdb.css';
+@import 'bootstrap-css-only/css/bootstrap.min.css';
+@import './styles/variables';
+@import './styles/fonts';
+@import './styles/mdboverride';
+
+@import './styles/main';
+@import './styles/UI/ui';

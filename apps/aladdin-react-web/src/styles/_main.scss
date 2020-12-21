@@ -1,0 +1,13 @@
+.app {
+  main {
+    min-height: calc(100vh - #{$footer-height});
+    margin-top: 6rem;
+    padding: 0 2.5rem;
+  }
+}
+[type='radio']:not(:checked),
+[type='radio']:checked {
+  position: relative;
+  pointer-events: auto;
+  opacity: 1;
+}
