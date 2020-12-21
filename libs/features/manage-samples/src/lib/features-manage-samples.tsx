@@ -1,19 +1,20 @@
-import './features-manage-samples.scss';
-import { MDBCol, MDBContainer, MDBIcon, MDBRow, MDBTypography } from 'mdbreact';
-import React from 'react';
+import "./features-manage-samples.scss";
+import { MDBCol, MDBContainer, MDBIcon, MDBRow, MDBTypography } from "mdbreact";
+import React from "react";
 import {
   AladdinCard,
   AladdinSearchbar,
   AladdinFilter,
-  AladdinMultipleselectors,
   AladdinDraggable,
   AladdinDroppable,
-} from '@aladdin/ui-kit';
-import { SampleDatasets } from '@aladdin/features/upload-data';
-import { useModal, SharedModal } from '@aladdin/shared/modals';
-
-import { DndProvider, useDrag } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+  AladdinMultiSelector,
+} from "@aladdin/ui-kit";
+import { SampleDatasets } from "@aladdin/features/upload-data";
+import { useModal, SharedModal } from "@aladdin/shared/modals";
+import { customUseForm } from "@aladdin/shared/forms";
+import { IManageSampleMulSelector } from "@aladdin/domain-models";
+import { DndProvider, useDrag } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 /**** Things to do:
  GET REQUEST GRAB EXISTING DATA
@@ -23,38 +24,44 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 
 /**** External Libraries used:
  * React Draggable
- * React Form to Validate the checked boxes
  * ****/
 
 export const FeaturesManageSamples: React.FC = () => {
+  const { onSubmit, control } = customUseForm<IManageSampleMulSelector>([]);
+
   const { showModal, toggleModal } = useModal();
   const fakeDataFromServer = [
     {
-      name: 'Region Test 1',
-      date: '10-2020',
-      icon: 'fa-grip-vertical',
-      actionableBtn: ['trash', 'pen', 'tag'],
+      name: "Region Test 1",
+      date: "10-2020",
+      icon: "fa-grip-vertical",
+      actionableBtn: ["trash", "pen", "tag"],
     },
     {
-      name: 'Region Test 1',
-      date: '10-2020',
-      icon: 'fa-grip-vertical',
-      actionableBtn: ['trash', 'pen', 'tag'],
+      name: "Region Test 1",
+      date: "10-2020",
+      icon: "fa-grip-vertical",
+      actionableBtn: ["trash", "pen", "tag"],
     },
+  ];
+  const options = [
+    { value: "sample_One", label: "sample_One" },
+    { value: "sample_Two", label: "sample_Two" },
+    { value: "sample_Three", label: "sample_Three" },
   ];
   const manageDataModalContent = [
     {
       description:
-        'Step 1: Once data are uploaded, the data will be displayed on the sample table. There are action buttons which allows you to view and edit your each of your sample.',
+        "Step 1: Once data are uploaded, the data will be displayed on the sample table. There are action buttons which allows you to view and edit your each of your sample.",
     },
     {
       description:
-        'Step 2: New samples can also be created by uploading your data and combining FASTQ sets for deeper sequencing and deleted.',
+        "Step 2: New samples can also be created by uploading your data and combining FASTQ sets for deeper sequencing and deleted.",
     },
 
     {
       description:
-        'Note: Data that has invalid platform will have a red FASTQ ID',
+        "Note: Data that has invalid platform will have a red FASTQ ID",
     },
   ];
   const renderManageDataModalContent = manageDataModalContent.map(
@@ -70,7 +77,7 @@ export const FeaturesManageSamples: React.FC = () => {
   const handleDrag = (item, monitor) => {
     const dropResult = monitor.getDropResult();
     //Logic to handle drag
-    console.log('I was dropped');
+    console.log("I was dropped");
   };
   return (
     <div className="manage-data-container">
@@ -110,15 +117,15 @@ export const FeaturesManageSamples: React.FC = () => {
               classes="manage-data-filter my-3"
               filterList={[
                 {
-                  label: 'Data',
+                  label: "Data",
                   value: true,
                 },
                 {
-                  label: 'Date',
+                  label: "Date",
                   value: false,
                 },
                 {
-                  label: 'Name',
+                  label: "Name",
                   value: false,
                 },
               ]}
@@ -126,26 +133,21 @@ export const FeaturesManageSamples: React.FC = () => {
           </MDBCol>
           <MDBCol xl="8" md="7" size="6">
             <p>Select Samples to Manage</p>
-            <div className="manage-sample-header d-flex">
-              <div className="d-flex">
-                <AladdinMultipleselectors
-                  classes="mx-0"
-                  selectorList={[
-                    {
-                      title: 'Sample_One',
-                    },
-                    {
-                      title: 'Sample_Two',
-                    },
-                  ]}
-                />
-
-                <div className="view-delete-btn mx-4 position-relative">
-                  <MDBIcon className="mx-3" icon="list" />
-                  View Deleted Samples
+            <form onSubmit={onSubmit}>
+              <div className="manage-sample-header d-flex">
+                <div className="d-flex">
+                  <AladdinMultiSelector
+                    name="multi-sample-selectors"
+                    options={options}
+                    control={control}
+                  />
+                  <div className="view-delete-btn mx-4 position-relative">
+                    <MDBIcon className="mx-3" icon="list" />
+                    View Deleted Samples
+                  </div>
                 </div>
               </div>
-            </div>
+            </form>
           </MDBCol>
         </MDBRow>
         <MDBRow>

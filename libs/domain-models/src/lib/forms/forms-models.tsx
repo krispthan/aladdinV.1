@@ -13,6 +13,9 @@ export interface IProfileFormData {
   email: string;
 }
 
+export interface IManageSampleMulSelector {
+  multiselect: string;
+}
 export interface IContactFormData {
   firstName: string;
   email: string;
