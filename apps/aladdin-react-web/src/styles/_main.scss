@@ -5,9 +5,13 @@
     padding: 0 2.5rem;
   }
 }
-[type='radio']:not(:checked),
-[type='radio']:checked {
+[type="radio"]:not(:checked),
+[type="radio"]:checked {
   position: relative;
   pointer-events: auto;
   opacity: 1;
+}
+
+.dropdown-content {
+  z-index: 10000;
 }

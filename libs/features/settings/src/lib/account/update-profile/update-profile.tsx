@@ -1,10 +1,9 @@
-import './update-profile.scss';
-import React from 'react';
-import { Controller } from 'react-hook-form';
-import { MDBRow, MDBCol, MDBInput } from 'mdbreact';
-import { FormValidation, IProfileFormData } from '@aladdin/domain-models';
-import { AladdinButton, AladdinInput } from '@aladdin/ui-kit';
-import { customUseForm } from '@aladdin/shared/forms';
+import "./update-profile.scss";
+import React from "react";
+import { MDBRow, MDBCol } from "mdbreact";
+import { FormValidation, IProfileFormData } from "@aladdin/domain-models";
+import { AladdinButton, AladdinInput } from "@aladdin/ui-kit";
+import { customUseForm } from "@aladdin/shared/forms";
 
 /* Things to do:
 handle post request
@@ -83,12 +82,12 @@ export const UpdateProfile: React.FC = () => {
                 label="Address"
                 type="text"
                 control={control}
-              />{' '}
+              />{" "}
               {errors.address && (
                 <p className="error-text text-danger font-small">{`${errors.address.message}`}</p>
               )}
             </MDBCol>
-          </MDBRow>{' '}
+          </MDBRow>{" "}
           <MDBRow>
             <MDBCol>
               <AladdinInput
