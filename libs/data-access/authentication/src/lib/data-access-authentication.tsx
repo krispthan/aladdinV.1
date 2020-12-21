@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import './data-access-authentication.scss';
+import "./data-access-authentication.scss";
 
 /* Handles Authentication */
 
@@ -20,4 +20,4 @@ export const DataAccessAuthentication = (
   );
 };
 
-export default DataAccessAuthentication;
+// export default DataAccessAuthentication;
