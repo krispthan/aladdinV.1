@@ -1,5 +1,5 @@
-import './navigation.scss';
-import React, { Component } from 'react';
+import "./navigation.scss";
+import React, { Component } from "react";
 
 import {
   MDBNavbar,
@@ -14,10 +14,10 @@ import {
   MDBDropdown,
   MDBDropdownMenu,
   MDBDropdownItem,
-} from 'mdbreact';
-import { Link } from 'react-router-dom';
-import { AppRoute, SequencerRoute } from '@aladdin/domain-models';
-import { withRouter } from 'react-router-dom';
+} from "mdbreact";
+import { Link } from "react-router-dom";
+import { AppRoute, SequencerRoute } from "@aladdin/domain-models";
+import { withRouter } from "react-router-dom";
 
 /****Things to do refactor after authentication is complete *****/
 export interface INavigationProps {
@@ -41,13 +41,13 @@ class MainNavigation extends Component<any> {
   constructor(props: INavigationProps) {
     super(props);
     this.state = {
-      activeTabClassName: 'dashboard',
+      activeTabClassName: "dashboard",
       collapsible: false,
     };
   }
 
   getInitialState = () => {
-    return { activeTabClassName: 'dashboard' };
+    return { activeTabClassName: "dashboard" };
   };
 
   setActiveMenuItem = (uid: string): void => {
@@ -61,33 +61,37 @@ class MainNavigation extends Component<any> {
   };
 
   render() {
-    console.log(this.props.location);
     const navItem = [
-      { uId: 'dashboard', title: 'Dashboard', route: `/${AppRoute.sequencer}` },
-      { uId: 'about', title: 'About', route: `/${AppRoute.about}` },
-      { uId: 'contact', title: 'Contact Us', route: `/${AppRoute.contacts}` },
-      { uId: 'faq', title: 'FAQ', route: `/${AppRoute.faq}` },
-      { uId: 'resources', title: 'Resources', route: `/${AppRoute.resources}` },
+      { uId: "dashboard", title: "Dashboard", route: `/${AppRoute.sequencer}` },
+      { uId: "about", title: "About", route: `/${AppRoute.about}` },
+      { uId: "contact", title: "Contact Us", route: `/${AppRoute.contacts}` },
+      { uId: "faq", title: "FAQ", route: `/${AppRoute.faq}` },
+      { uId: "resources", title: "Resources", route: `/${AppRoute.resources}` },
     ];
     const renderNavList = navItem.map((navItem) => {
       console.log(
-        'what is this location?',
+        "what is this location?",
         this.props.location.pathname.indexOf(navItem.uId)
       );
       return (
         <MDBNavItem key={navItem.uId}>
-          <MDBNavLink
+          {/* <MDBNavLink> </MDBNavLink> */}
+          {/* <MDBNavLink
             to={navItem.route}
             active={this.props.location.pathname === navItem.route}
             onClick={() => this.setActiveMenuItem(navItem.uId)}
           >
-            {navItem.title}
-          </MDBNavLink>
+            
+          </MDBNavLink> */}
+          <Link
+            to={navItem.route}
+            onClick={() => this.setActiveMenuItem(navItem.uId)}
+          />
         </MDBNavItem>
       );
     });
 
-    const navBackground = { backgroundColor: '#3D1A85' };
+    const navBackground = { backgroundColor: "#3D1A85" };
     return (
       <MDBNavbar style={navBackground} dark expand="md" scrolling>
         <MDBNavbarBrand href="/">

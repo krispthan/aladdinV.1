@@ -10,7 +10,9 @@ export interface HeaderProps {}
 export class Header extends Component<HeaderProps> {
   render() {
     return (
-      <header className="fixed-top"> {/* <MainNavComponent />{" "} */}</header>
+      <header className="fixed-top">
+        <MainNavComponent />
+      </header>
     );
   }
 }

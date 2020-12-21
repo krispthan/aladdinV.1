@@ -1,8 +1,7 @@
-import React from 'react';
-import { MDBCol, MDBContainer, MDBRow, MDBFooter, MDBIcon } from 'mdbreact';
-import { BrowserRouter as Router } from 'react-router-dom';
-import './footer.scss';
-import { render } from '@testing-library/react';
+import React from "react";
+import { MDBCol, MDBContainer, MDBRow, MDBFooter, MDBIcon } from "mdbreact";
+import "./footer.scss";
+import { render } from "@testing-library/react";
 
 /* eslint-disable-next-line */
 export interface IFooterProps {
@@ -17,13 +16,13 @@ export interface IFooterNavItems {
 
 export const Footer: React.FC = () => {
   const footerBackground = {
-    backgroundColor: '#3D1A85',
+    backgroundColor: "#3D1A85",
   };
   const socialContacts = [
-    { icon: 'facebook-f' },
-    { icon: 'twitter' },
-    { icon: 'instagram' },
-    { icon: 'linkedin-in' },
+    { icon: "facebook-f" },
+    { icon: "twitter" },
+    { icon: "instagram" },
+    { icon: "linkedin-in" },
   ];
   const renderSocialContacts = socialContacts.map((social, index) => {
     return (
@@ -34,10 +33,10 @@ export const Footer: React.FC = () => {
   });
 
   const footerLinks = [
-    { title: 'SERVICES', a: '#', name: 'Resources' },
-    { title: 'SERVICES', a: '#', name: 'Resources' },
-    { title: 'SERVICES', a: '#', name: 'Resources' },
-    { title: 'SERVICES', a: '#', name: 'Resources' },
+    { title: "SERVICES", a: "#", name: "Resources" },
+    { title: "SERVICES", a: "#", name: "Resources" },
+    { title: "SERVICES", a: "#", name: "Resources" },
+    { title: "SERVICES", a: "#", name: "Resources" },
   ];
   const renderFooterLinks = footerLinks.map((link, index) => {
     return (
@@ -84,7 +83,7 @@ export const Footer: React.FC = () => {
       </MDBContainer>
       <div className="copyright-footer text-center py-3">
         <MDBContainer fluid>
-          &copy; {new Date().getFullYear()} Copyright:{' '}
+          &copy; {new Date().getFullYear()} Copyright:{" "}
           <a href="https://www.mdbootstrap.com">Aladdin </a>
         </MDBContainer>
       </div>
