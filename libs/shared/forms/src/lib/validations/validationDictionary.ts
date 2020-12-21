@@ -11,6 +11,7 @@ import { claimValidation } from "./claimValidation";
 import { nameValidation } from "./nameValidation";
 import { tagValidation } from "./tagValidation";
 import { descriptionValidation } from "./descriptionValidation";
+import { termValidation } from "./termValidation";
 
 export const ValidationDictionary: Record<FormValidation, BaseSchema> = {
   [FormValidation.email]: emailValidation,
@@ -24,4 +25,5 @@ export const ValidationDictionary: Record<FormValidation, BaseSchema> = {
   [FormValidation.name]: nameValidation,
   [FormValidation.tag]: tagValidation,
   [FormValidation.description]: descriptionValidation,
+  [FormValidation.term]: termValidation,
 };
