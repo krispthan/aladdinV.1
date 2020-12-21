@@ -8,6 +8,7 @@ import {
   AladdinDraggable,
   AladdinDroppable,
   AladdinMultiSelector,
+  AladdinButton,
 } from "@aladdin/ui-kit";
 import { SampleDatasets } from "@aladdin/features/upload-data";
 import { useModal, SharedModal } from "@aladdin/shared/modals";
@@ -135,17 +136,12 @@ export const FeaturesManageSamples: React.FC = () => {
             <p>Select Samples to Manage</p>
             <form onSubmit={onSubmit}>
               <div className="manage-sample-header d-flex">
-                <div className="d-flex">
-                  <AladdinMultiSelector
-                    name="multi-sample-selectors"
-                    options={options}
-                    control={control}
-                  />
-                  <div className="view-delete-btn mx-4 position-relative">
-                    <MDBIcon className="mx-3" icon="list" />
-                    View Deleted Samples
-                  </div>
-                </div>
+                <AladdinMultiSelector
+                  name="multi-sample-selectors"
+                  options={options}
+                  control={control}
+                />
+                {/* <AladdinButton>Deleted Samples</AladdinButton> */}
               </div>
             </form>
           </MDBCol>

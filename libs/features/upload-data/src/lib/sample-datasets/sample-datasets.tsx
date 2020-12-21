@@ -1,16 +1,16 @@
-import './sample-datasets.scss';
-import React, { useState, useEffect } from 'react';
-import { ISampleNameForm } from '@aladdin/domain-models';
+import "./sample-datasets.scss";
+import React, { useState, useEffect } from "react";
+import { FormValidation, ISampleNameForm } from "@aladdin/domain-models";
 import {
   AladdinCard,
   AladdinDraggable,
   AladdinDroppable,
   AladdinInput,
-} from '@aladdin/ui-kit';
-import { MDBCol, MDBIcon, MDBInput, MDBRow } from 'mdbreact';
-import { Controller } from 'react-hook-form';
-import { customUseForm } from '@aladdin/shared/forms';
-import { ItemTypes } from '@aladdin/domain-models';
+} from "@aladdin/ui-kit";
+import { MDBCol, MDBIcon, MDBInput, MDBRow } from "mdbreact";
+import { Controller } from "react-hook-form";
+import { customUseForm } from "@aladdin/shared/forms";
+import { ItemTypes } from "@aladdin/domain-models";
 
 /**Things to do:
  * api post sample name
@@ -31,53 +31,55 @@ interface IReads {
 }
 const fakeData = [
   {
-    name: 'Name',
+    name: "Name",
     R1: {
       id: 1,
-      name: 'Region Test 1',
-      date: '12/2/2021',
-      actionBtns: ['pen', 'trash', 'tag'],
+      name: "Region Test 1",
+      date: "12/2/2021",
+      actionBtns: ["pen", "trash", "tag"],
     },
     R2: {
       id: 2,
-      name: 'Region Test 2',
-      date: '12/2/2022',
-      actionBtns: ['pen', 'trash', 'tag'],
+      name: "Region Test 2",
+      date: "12/2/2022",
+      actionBtns: ["pen", "trash", "tag"],
     },
   },
   {
-    name: 'Name',
+    name: "Name",
     R1: {
       id: 3,
-      name: 'Region Test 3',
-      date: '12/2/203',
-      actionBtns: ['pen', 'trash', 'tag'],
+      name: "Region Test 3",
+      date: "12/2/203",
+      actionBtns: ["pen", "trash", "tag"],
     },
     R2: {
       id: 4,
-      name: 'Region Test 4',
-      date: '12/2/2024',
-      actionBtns: ['pen', 'trash', 'tag'],
+      name: "Region Test 4",
+      date: "12/2/2024",
+      actionBtns: ["pen", "trash", "tag"],
     },
   },
   {
-    name: 'Name',
+    name: "Name",
     R1: {
       id: 5,
-      name: 'Region Test 5',
-      date: '12/2/2025',
-      actionBtns: ['pen', 'trash', 'tag'],
+      name: "Region Test 5",
+      date: "12/2/2025",
+      actionBtns: ["pen", "trash", "tag"],
     },
     R2: {
       id: 6,
-      name: 'Region Test 6',
-      date: '12/2/2026',
-      actionBtns: ['pen', 'trash', 'tag'],
+      name: "Region Test 6",
+      date: "12/2/2026",
+      actionBtns: ["pen", "trash", "tag"],
     },
   },
 ];
 export const SampleDatasets: React.FC = () => {
-  const { onSubmit, control } = customUseForm<ISampleNameForm>([]);
+  const { onSubmit, control, errors } = customUseForm<ISampleNameForm>([
+    FormValidation.name,
+  ]);
   const [arrangeSampleData, setArrangeSampleData] = useState(fakeData);
 
   /* HandleDragAndSwap() allows the user to drag/drop the sample and rerenders the data object when they drag/drop from one 
@@ -100,7 +102,7 @@ export const SampleDatasets: React.FC = () => {
   };
 
   const parseId = (id) => {
-    const idArr = id.split('-');
+    const idArr = id.split("-");
     const keyArr = idArr[1];
     return {
       index: parseInt(idArr[0]),
@@ -130,14 +132,14 @@ export const SampleDatasets: React.FC = () => {
           <AladdinInput
             outline
             classes="sample-name-input"
-            name="create--name"
+            name="name"
             label="Create Sample Name"
             type="text"
             control={control}
           />
-          {/* {errors.name && (
-                <p className="error-text text-danger font-small">{`${errors.name.message}`}</p>
-              )} */}
+          {errors.name && (
+            <p className="error-text text-danger font-small">{`${errors.name.message}`}</p>
+          )}
         </div>
 
         <div className="drag-n-drop">
@@ -157,14 +159,14 @@ export const SampleDatasets: React.FC = () => {
                   <AladdinDroppable
                     classes="dnd-group"
                     accept={ItemTypes.SampleDatasets}
-                    id={groupIndex + '-R1'}
+                    id={groupIndex + "-R1"}
                   >
                     {renderReadsDrag(group.R1, `${groupIndex}-R1`)}
                   </AladdinDroppable>
                   <AladdinDroppable
                     classes="dnd-group"
                     accept={ItemTypes.SampleDatasets}
-                    id={groupIndex + '-R2'}
+                    id={groupIndex + "-R2"}
                   >
                     {renderReadsDrag(group.R2, `${groupIndex}-R2`)}
                   </AladdinDroppable>

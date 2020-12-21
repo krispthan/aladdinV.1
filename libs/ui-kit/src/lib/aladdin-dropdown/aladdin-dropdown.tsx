@@ -45,6 +45,7 @@ export const AladdinDropdown: React.FC<IAladdinDropdownProps> = (
         {props.selectorList.map((selector, index) => {
           return (
             <Controller
+              key={index}
               name={props.name}
               control={props.control}
               defaultValue={""}

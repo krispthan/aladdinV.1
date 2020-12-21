@@ -4,10 +4,13 @@
     grid-template-columns: repeat(2, 350px);
   }
   .create-project-input {
-    padding: 0.4rem 5rem !important;
+    width: 300px;
   }
 
   .text-area-form {
     padding: 1rem 5rem !important;
+  }
+  .md-form textarea.md-textarea {
+    height: 80px;
   }
 }

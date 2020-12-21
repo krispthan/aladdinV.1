@@ -57,7 +57,7 @@ export interface ICreateProjectForm {
   name: string;
   tag: string;
   description: string;
-  type: string | number;
+  dataType: string | number;
 }
 
 export interface IControlGroupFormData {
