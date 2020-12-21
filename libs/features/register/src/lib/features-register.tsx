@@ -1,7 +1,7 @@
-import './features-register.scss';
-import React from 'react';
-import { useModal, SharedModal } from '@aladdin/shared/modals';
-import { IRegistrationFormData, FormValidation } from '@aladdin/domain-models';
+import "./features-register.scss";
+import React from "react";
+import { useModal } from "@aladdin/shared/modals";
+import { IRegistrationFormData, FormValidation } from "@aladdin/domain-models";
 import {
   MDBContainer,
   MDBRow,
@@ -13,9 +13,9 @@ import {
   MDBPopoverBody,
   MDBPopover,
   MDBInput,
-} from 'mdbreact';
-import { customUseForm } from '@aladdin/shared/forms';
-import { AladdinButton, AladdinCheckbox, AladdinInput } from '@aladdin/ui-kit';
+} from "mdbreact";
+import { customUseForm } from "@aladdin/shared/forms";
+import { AladdinButton, AladdinCheckbox, AladdinInput } from "@aladdin/ui-kit";
 /** Things to do :
  * Authentication and authorization using redux
  * api post request
@@ -31,6 +31,7 @@ export function FeaturesRegister() {
     FormValidation.firstName,
     FormValidation.email,
     FormValidation.password,
+    FormValidation.term,
   ]);
   const { showModal, toggleModal } = useModal();
   return (
@@ -52,7 +53,7 @@ export function FeaturesRegister() {
               >
                 <MDBRow>
                   <MDBCol xl="6">
-                    {' '}
+                    {" "}
                     <AladdinInput
                       outline
                       name={FormValidation.firstName}
@@ -61,7 +62,14 @@ export function FeaturesRegister() {
                       control={control}
                     />
                     {errors.firstName && (
-                      <p className="error-text text-danger font-small">{`${errors.firstName.message}`}</p>
+                      <>
+                        <MDBIcon
+                          className="error-message error-message-icon red-text pr-3"
+                          fixed
+                          icon="exclamation-triangle"
+                        />
+                        <span className="error-message px-2 error-text text-danger">{`${errors.firstName.message}`}</span>
+                      </>
                     )}
                   </MDBCol>
                   <MDBCol className=" px-3" xl="6">
@@ -73,7 +81,14 @@ export function FeaturesRegister() {
                       control={control}
                     />
                     {errors.lastName && (
-                      <p className="error-text text-danger font-small">{`${errors.lastName.message}`}</p>
+                      <>
+                        <MDBIcon
+                          className="error-message error-message-icon red-text pr-3"
+                          fixed
+                          icon="exclamation-triangle"
+                        />
+                        <span className="error-message px-2 error-text text-danger">{`${errors.lastName.message}`}</span>
+                      </>
                     )}
                   </MDBCol>
                 </MDBRow>
@@ -140,18 +155,15 @@ export function FeaturesRegister() {
                   </MDBPopover>
                 </div>
 
-                <div className="terms-agreement d-flex py-2 ">
-                  <AladdinCheckbox
-                    control={control}
-                    register={register}
-                    name="terms-agreement"
-                    defaultValue={false}
-                    id="terms-agreement"
-                  />
+                <div className="terms-agreement d-flex">
+                  <AladdinCheckbox name="term" defaultValue={false} id="term" />
                   <span className="terms-message">
                     I agree the <a>terms of Use</a> and<a> Private Policy.</a>
                   </span>
                 </div>
+                {errors.term && (
+                  <span className="error-text text-danger font-small">{`${errors.term.message}`}</span>
+                )}
                 <div className="text-center my-3">
                   <AladdinButton classes="register-btn mx-auto">
                     Register

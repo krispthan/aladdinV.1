@@ -1,18 +1,16 @@
-import { MDBInput } from 'mdbreact';
-import React, { useState } from 'react';
-import { Control, Controller } from 'react-hook-form';
+import { MDBInput } from "mdbreact";
+import React, { useState } from "react";
+import { Control, Controller } from "react-hook-form";
 
-import './aladdin-checkbox.scss';
+import "./aladdin-checkbox.scss";
 
 /* Custom Checkbox used to handle check boxes in forms*/
 export interface IAladdinCheckboxProps {
   classes?: string;
   id: string;
-  control: Control;
   label?: string;
   name: string;
   defaultValue: boolean;
-  register: any;
 }
 
 export const AladdinCheckbox: React.FC<IAladdinCheckboxProps> = (
@@ -29,7 +27,6 @@ export const AladdinCheckbox: React.FC<IAladdinCheckboxProps> = (
       name={props.name}
       type="checkbox"
       id={props.id}
-      ref={props.register}
       checked={checked}
       onChange={handleChecked}
     />

@@ -11,4 +11,5 @@ export enum FormValidation {
   tag = "tag",
   description = "description",
   dataType = "dataType",
+  term = "term",
 }

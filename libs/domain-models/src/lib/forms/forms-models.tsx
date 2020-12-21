@@ -19,6 +19,7 @@ export interface IManageSampleMulSelector {
 export interface IDropdownSelector {
   dropDownSelect: string;
 }
+
 export interface IContactFormData {
   firstName: string;
   email: string;
@@ -43,6 +44,7 @@ export interface IRegistrationFormData {
   email: string;
   password: string;
   project: {} | string;
+  term: boolean;
 }
 
 export interface ISearchForm {
