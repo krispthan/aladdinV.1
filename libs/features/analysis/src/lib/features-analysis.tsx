@@ -1,10 +1,10 @@
-import './features-analysis.scss';
-import React, { useState } from 'react';
+import "./features-analysis.scss";
+import React, { useState } from "react";
 import {
   AppRoute,
   ProjectRoutes,
   SequencerRoute,
-} from '@aladdin/domain-models';
+} from "@aladdin/domain-models";
 import {
   AladdinButton,
   AladdinCard,
@@ -14,10 +14,10 @@ import {
   AladdinTables,
   AladdinDraggable,
   AladdinDroppable,
-} from '@aladdin/ui-kit';
-import { useModal, SharedModal } from '@aladdin/shared/modals';
-
-import { IControlGroupFormData } from '@aladdin/domain-models';
+} from "@aladdin/ui-kit";
+import { useModal, SharedModal } from "@aladdin/shared/modals";
+import { customUseForm } from "@aladdin/shared/forms";
+import { IControlGroupFormData } from "@aladdin/domain-models";
 import {
   MDBBtn,
   MDBCol,
@@ -26,9 +26,9 @@ import {
   MDBIcon,
   MDBRow,
   MDBTypography,
-} from 'mdbreact';
-import { useForm } from 'react-hook-form';
-import { SampleDatasets } from '@aladdin/features/upload-data';
+} from "mdbreact";
+import { useForm } from "react-hook-form";
+import { IDropdownSelector } from "@aladdin/domain-models";
 
 /* Things to do:
 handle post request to grab sample data
@@ -45,49 +45,50 @@ interface ISampleSet {
   sequenceSet: string;
 }
 const fakeData = {
-  header: ['Sequence Name', 'Sequence Set', 'Date', 'Stuff'],
+  header: ["Sequence Name", "Sequence Set", "Date", "Stuff"],
   body: [
     {
-      id: '1',
-      name: 'Sars',
-      sequenceSet: 'Test_One',
-      date: '12-22-22',
-      anything: 'anything',
+      id: "1",
+      name: "Sars",
+      sequenceSet: "Test_One",
+      date: "12-22-22",
+      anything: "anything",
     },
     {
-      id: '2',
-      name: 'Covid',
-      sequenceSet: 'Test_Two',
-      date: '12-21-22',
-      something: 'something',
+      id: "2",
+      name: "Covid",
+      sequenceSet: "Test_Two",
+      date: "12-21-22",
+      something: "something",
     },
   ],
 };
 
 export const FeaturesAnalysis = () => {
   const { handleSubmit, register, setValue } = useForm();
+  const { onSubmit, control } = customUseForm<IDropdownSelector>([]);
   const [isToggle, setToggle] = useState<boolean>(false);
   const { showModal, toggleModal } = useModal();
-  const [tableCheckBox, setTableCheckBox] = useState<string>('');
+  const [tableCheckBox, setTableCheckBox] = useState<string>("");
 
   const handleToggle = () => {
     setToggle(!isToggle);
   };
 
   const tipsOnAnalysisModalContent = [
-    { description: 'Choose which project you want to run the analysis from.' },
-    { description: 'Select an analysis or create a new analysis to begin.' },
+    { description: "Choose which project you want to run the analysis from." },
+    { description: "Select an analysis or create a new analysis to begin." },
     {
       description:
-        'Choose and filter which sequenceset and samples you want to add or emove to in your analysis table.',
+        "Choose and filter which sequenceset and samples you want to add or emove to in your analysis table.",
     },
     {
       description:
-        'Assign group name to the samples you wish to compare and analyzed. Samples that are not group will not be compared, only analyzed.',
+        "Assign group name to the samples you wish to compare and analyzed. Samples that are not group will not be compared, only analyzed.",
     },
     {
       description:
-        'Once the sequence sets and samples are selected to be analyzed, click run analysis.',
+        "Once the sequence sets and samples are selected to be analyzed, click run analysis.",
     },
     {
       description:
@@ -148,21 +149,30 @@ export const FeaturesAnalysis = () => {
         Select the sample you would like to include in your analysis. Please
         group the samples in the analysis before submitting.
       </p>
-      <AladdinDropdown
-        headerType="h3"
-        currentlySelected="My Projects"
-        classes="view-projects dropdown-header"
-        selectorList={[
-          {
-            title: 'Zika Project',
-            route: `/${AppRoute.sequencer}/${SequencerRoute.Projects}/${ProjectRoutes.View}`,
-          },
-          {
-            title: 'My Projects',
-            route: `/${AppRoute.sequencer}/${SequencerRoute.Projects}/`,
-          },
-        ]}
-      />
+
+      <form onSubmit={onSubmit}>
+        <AladdinDropdown
+          name="drop-down-selector"
+          control={control}
+          headerType="h3"
+          currentlySelected="My Projects"
+          classes="view-projects dropdown-header"
+          selectorList={[
+            {
+              title: "Zika Project",
+              route: `/${AppRoute.sequencer}/${SequencerRoute.Projects}/${ProjectRoutes.View}`,
+            },
+            {
+              title: "Sample Project",
+              route: `/${AppRoute.sequencer}/${SequencerRoute.Projects}/${ProjectRoutes.View}`,
+            },
+            {
+              title: "My Projects",
+              route: `/${AppRoute.sequencer}/${SequencerRoute.Projects}/`,
+            },
+          ]}
+        />
+      </form>
       <MDBRow>
         <MDBCol>
           <div className="create-analysis-container d-flex">
@@ -200,20 +210,20 @@ export const FeaturesAnalysis = () => {
                       classes="d-flex my-4"
                       filterList={[
                         {
-                          label: 'Data',
+                          label: "Data",
                           value: true,
                         },
                         {
-                          label: 'Date',
+                          label: "Date",
                           value: false,
                         },
                         {
-                          label: 'Name',
+                          label: "Name",
                           value: false,
                         },
                       ]}
                     />
-                  </MDBCollapse>{' '}
+                  </MDBCollapse>{" "}
                 </div>
 
                 {renderAnalysisTable()}

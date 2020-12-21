@@ -9,18 +9,20 @@ import {
   MDBDropdownItem,
 } from "mdbreact";
 import { AladdinHeader } from "../aladdin-header/aladdin-header";
+import { Control, Controller } from "react-hook-form";
 
-/* Custom Dropdown component that is configurable to use to any component that needs Dropdown:
-User can select project from drop down menuu
-API: get request to grab all the projects to the top level componnent
-
-*/
-
+export interface ISelector {
+  label: string;
+  value: string;
+}
 export interface IAladdinDropdownProps extends HTMLAttributes<HTMLDivElement> {
   classes?: string;
   currentlySelected?: string;
   headerType: string;
   selectorList: IDropdownProps[];
+  name: string;
+  control: Control;
+  onClick?: () => void;
 }
 
 export interface IDropdownProps {
@@ -42,9 +44,23 @@ export const AladdinDropdown: React.FC<IAladdinDropdownProps> = (
       <MDBDropdownMenu>
         {props.selectorList.map((selector, index) => {
           return (
-            <MDBDropdownItem key={index}>
-              <Link to={selector.route}>{selector.title}</Link>
-            </MDBDropdownItem>
+            <Controller
+              name={props.name}
+              control={props.control}
+              defaultValue={""}
+              render={({ name, value, onChange }) => {
+                return (
+                  <MDBDropdownItem
+                    name={name}
+                    value={value}
+                    onChange={onChange}
+                    key={index}
+                  >
+                    <Link to={selector.route}>{selector.title}</Link>
+                  </MDBDropdownItem>
+                );
+              }}
+            />
           );
         })}
       </MDBDropdownMenu>

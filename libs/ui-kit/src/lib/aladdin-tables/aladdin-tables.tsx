@@ -1,6 +1,6 @@
-import './aladdin-tables.scss';
-import React, { HTMLAttributes } from 'react';
-import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
+import "./aladdin-tables.scss";
+import React, { HTMLAttributes } from "react";
+import { MDBTable, MDBTableBody, MDBTableHead } from "mdbreact";
 
 /* Will be able to use this table to inherit any sets of data*/
 export interface AladdinTablesProps extends HTMLAttributes<HTMLDivElement> {
@@ -27,12 +27,12 @@ export interface ITableHeaderProps {
 export interface ITableBodyProps<T extends Keyed> {
   data: T[];
 }
-const DEFAULT_HEADER_TABLE_COLOR = '#e6e1ef';
+const DEFAULT_HEADER_TABLE_COLOR = "#e6e1ef";
 export const AladdinTables: React.FC<AladdinTablesProps> = (
   props: AladdinTablesProps
 ) => {
   const tableHeaderColor = props.color ?? DEFAULT_HEADER_TABLE_COLOR;
-  const tableResponsive = props.responsive ? 'responsive' : '';
+  const tableResponsive = props.responsive ? "responsive" : "";
   return (
     <>
       <MDBTable
@@ -50,8 +50,12 @@ export const AladdinTables: React.FC<AladdinTablesProps> = (
           {props.bodyList.map((tableRow, index) => {
             return (
               <tr key={index} className="handle-drag">
-                {Object.keys(tableRow).map((tableData) => {
-                  return tableData != 'id' && <td>{tableRow[tableData]}</td>;
+                {Object.keys(tableRow).map((tableData, index) => {
+                  return (
+                    tableData != "id" && (
+                      <td key={index}>{tableRow[tableData]}</td>
+                    )
+                  );
                 })}
               </tr>
             );
