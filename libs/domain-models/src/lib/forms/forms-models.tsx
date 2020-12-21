@@ -16,6 +16,9 @@ export interface IProfileFormData {
 export interface IManageSampleMulSelector {
   multiselect: string;
 }
+export interface IDropdownSelector {
+  dropDownSelect: string;
+}
 export interface IContactFormData {
   firstName: string;
   email: string;

@@ -1,70 +1,46 @@
-import './view-project.scss';
-import React from 'react';
+import "./view-project.scss";
+import React from "react";
 import {
   AladdinButton,
   AladdinCard,
   AladdinDropdown,
   AladdinTables,
-} from '@aladdin/ui-kit';
-import { Link } from 'react-router-dom';
+} from "@aladdin/ui-kit";
+import { Link } from "react-router-dom";
 import {
   AppRoute,
   SequencerRoute,
   ProjectRoutes,
-} from '@aladdin/domain-models';
-import {
-  MDBCard,
-  MDBCardHeader,
-  MDBCol,
-  MDBRow,
-  MDBTable,
-  MDBTableBody,
-  MDBTableHead,
-} from 'mdbreact';
+} from "@aladdin/domain-models";
+import { MDBCol, MDBRow } from "mdbreact";
+import { customUseForm } from "@aladdin/shared/forms";
+import { IDropdownSelector } from "@aladdin/domain-models";
 /* Things to do:
 add props handle click:
-- user clicks on the project should take them to the specific project using routes
+- 
 
 api get request to retrieve project id information
 */
 
 export const ViewProject: React.FC = (props) => {
-  const data_people = {
-    columns: [
-      {
-        label: 'Sample Name',
-        field: 'sample',
-        sort: 'asc',
-      },
+  const { onSubmit, control } = customUseForm<IDropdownSelector>([]);
 
+  const fakeData = {
+    header: ["Sequence Name", "Sequence Set", "Date", "Stuff"],
+    body: [
       {
-        label: 'Type PE/SE',
-        field: 'type',
-        sort: 'asc',
+        id: "1",
+        name: "Sars",
+        sequenceSet: "Test_One",
+        date: "12-22-22",
+        anything: "anything",
       },
       {
-        label: 'Description',
-        field: 'description',
-        sort: 'asc',
-      },
-      {
-        label: 'Region',
-        field: 'region',
-        sort: 'asc',
-      },
-    ],
-    rows: [
-      {
-        id: 'Control_R_1',
-        type: 'Kate',
-        description: 'USA',
-        region: 'New York City',
-      },
-      {
-        id: 'Control_R_2',
-        type: 'Kate',
-        description: 'USA',
-        region: 'New York City',
+        id: "2",
+        name: "Covid",
+        sequenceSet: "Test_Two",
+        date: "12-21-22",
+        something: "something",
       },
     ],
   };
@@ -72,24 +48,29 @@ export const ViewProject: React.FC = (props) => {
     <>
       <MDBRow className="project-header-container d-flex">
         <MDBCol xl="9" lg="9" md="6" className="pb-3">
-          <AladdinDropdown
-            currentlySelected="Zika Project"
-            classes="dropdown-header"
-            selectorList={[
-              {
-                title: 'Zika Project',
-                route: `/${AppRoute.sequencer}/${SequencerRoute.Projects}/${ProjectRoutes.View}`,
-              },
-              {
-                title: 'Sample Project',
-                route: `/${AppRoute.sequencer}/${SequencerRoute.Projects}/${ProjectRoutes.View}`,
-              },
-              {
-                title: 'My Projects',
-                route: `/${AppRoute.sequencer}/${SequencerRoute.Projects}/`,
-              },
-            ]}
-          />
+          <form onSubmit={onSubmit}>
+            <AladdinDropdown
+              name="drop-down-selector"
+              control={control}
+              headerType="h1"
+              currentlySelected="Zika Project"
+              classes="dropdown-header"
+              selectorList={[
+                {
+                  title: "Zika Project",
+                  route: `/${AppRoute.sequencer}/${SequencerRoute.Projects}/${ProjectRoutes.View}`,
+                },
+                {
+                  title: "Sample Project",
+                  route: `/${AppRoute.sequencer}/${SequencerRoute.Projects}/${ProjectRoutes.View}`,
+                },
+                {
+                  title: "My Projects",
+                  route: `/${AppRoute.sequencer}/${SequencerRoute.Projects}/`,
+                },
+              ]}
+            />
+          </form>
           <p>
             This is a descript of the Zika project. Here you'll find details to
             your project.
@@ -117,7 +98,7 @@ export const ViewProject: React.FC = (props) => {
           <p>Your samples are displayed below for this project.</p>
           <AladdinButton
             btnClicked={() => {
-              console.log('test');
+              console.log("test");
             }}
             classes="sample-table-create-btn mx-3"
           >
@@ -126,21 +107,14 @@ export const ViewProject: React.FC = (props) => {
             </Link>
           </AladdinButton>
         </div>
+
         <AladdinTables
           classes=" my-3"
           color="primary"
           striped
           borderless
-          headerList={[
-            { data: 'Sample Name' },
-            { data: 'Sequencing Set' },
-            { data: 'Date' },
-          ]}
-          bodyList={[
-            { data: 'Sars' },
-            { data: 'Test_One' },
-            { data: '12-2-20' },
-          ]}
+          headerList={fakeData.header}
+          bodyList={fakeData.body}
         ></AladdinTables>
       </AladdinCard>
       <AladdinCard classes="project-card-table">
@@ -153,7 +127,7 @@ export const ViewProject: React.FC = (props) => {
 
           <AladdinButton
             btnClicked={() => {
-              console.log('test');
+              console.log("test");
             }}
             classes="sample-table-create-btn mx-3"
           >
@@ -162,22 +136,13 @@ export const ViewProject: React.FC = (props) => {
             </Link>
           </AladdinButton>
         </div>
-
         <AladdinTables
           classes=" my-3"
           color="primary"
           striped
           borderless
-          headerList={[
-            { data: 'Sample Name' },
-            { data: 'Sequencing Set' },
-            { data: 'Date' },
-          ]}
-          bodyList={[
-            { data: 'Sars' },
-            { data: 'Test_One' },
-            { data: '12-2-20' },
-          ]}
+          headerList={fakeData.header}
+          bodyList={fakeData.body}
         ></AladdinTables>
       </AladdinCard>
     </>

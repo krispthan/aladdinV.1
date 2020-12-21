@@ -1,17 +1,17 @@
-import './features-upload-data.scss';
-import React, { useState } from 'react';
+import "./features-upload-data.scss";
+import React, { useState } from "react";
 import {
   AladdinSearchbar,
   AladdinDropdown,
   AladdinFiledropZone,
   AladdinButton,
-} from '@aladdin/ui-kit';
-import { useModal, SharedModal } from '@aladdin/shared/modals';
+} from "@aladdin/ui-kit";
+import { useModal, SharedModal } from "@aladdin/shared/modals";
 import {
   AppRoute,
   ProjectRoutes,
   SequencerRoute,
-} from '@aladdin/domain-models';
+} from "@aladdin/domain-models";
 import {
   MDBTypography,
   MDBRow,
@@ -19,13 +19,13 @@ import {
   MDBIcon,
   MDBContainer,
   MDBInput,
-} from 'mdbreact';
+} from "mdbreact";
 
-import { SequenceReadType } from '@aladdin/domain-models';
-import SampleDatasets from './sample-datasets/sample-datasets';
-import { Controller, useForm } from 'react-hook-form';
-import { FormValidation, IRadioReads } from '@aladdin/domain-models';
-import { customUseForm } from '@aladdin/shared/forms';
+import { SequenceReadType } from "@aladdin/domain-models";
+import SampleDatasets from "./sample-datasets/sample-datasets";
+import { Controller, useForm } from "react-hook-form";
+import { FormValidation, IRadioReads } from "@aladdin/domain-models";
+import { customUseForm } from "@aladdin/shared/forms";
 
 export const FeaturesUploadData: React.FC = () => {
   const { onSubmit, control, register } = customUseForm<IRadioReads>();
@@ -55,16 +55,16 @@ export const FeaturesUploadData: React.FC = () => {
   const uploadDataModalContent = [
     {
       description:
-        'Step 1: Select a project you wish to begin to upload your data.',
+        "Step 1: Select a project you wish to begin to upload your data.",
     },
-    { description: 'Step 2: Begin uploading your data.' },
+    { description: "Step 2: Begin uploading your data." },
     {
       description:
-        'Step 3: Once your samples are uploaded, select the data you wish to modified (e.g.,name, meta tags).',
+        "Step 3: Once your samples are uploaded, select the data you wish to modified (e.g.,name, meta tags).",
     },
     {
       description:
-        'Step 4: Click into the specific samples to either archive, edit meta data, delete or add existing data to samples.',
+        "Step 4: Click into the specific samples to either archive, edit meta data, delete or add existing data to samples.",
     },
   ];
   const renderUploadModalContent = uploadDataModalContent.map(
@@ -103,21 +103,29 @@ export const FeaturesUploadData: React.FC = () => {
 
       <MDBRow>
         <MDBCol xl="4">
-          <AladdinDropdown
-            headerType="h2"
-            classes="dropdown-header"
-            currentlySelected="My Projects"
-            selectorList={[
-              {
-                title: 'Zika Project',
-                route: `/${AppRoute.sequencer}/${SequencerRoute.Projects}/${ProjectRoutes.View}`,
-              },
-              {
-                title: 'My Projects',
-                route: `/${AppRoute.sequencer}/${SequencerRoute.Projects}/`,
-              },
-            ]}
-          />
+          <form onSubmit={onSubmit}>
+            <AladdinDropdown
+              name="drop-down-selector"
+              control={control}
+              headerType="h2"
+              currentlySelected="My Projects"
+              classes="dropdown-header"
+              selectorList={[
+                {
+                  title: "Zika Project",
+                  route: `/${AppRoute.sequencer}/${SequencerRoute.Projects}/${ProjectRoutes.View}`,
+                },
+                {
+                  title: "Sample Project",
+                  route: `/${AppRoute.sequencer}/${SequencerRoute.Projects}/${ProjectRoutes.View}`,
+                },
+                {
+                  title: "My Projects",
+                  route: `/${AppRoute.sequencer}/${SequencerRoute.Projects}/`,
+                },
+              ]}
+            />
+          </form>
           <div className="check-reads-container">
             <p>
               <strong>Are your reads:</strong>
@@ -155,7 +163,7 @@ export const FeaturesUploadData: React.FC = () => {
           <div className="sample-data-btn-container d-flex my-3">
             <AladdinButton
               btnClicked={() => {
-                console.log('test');
+                console.log("test");
               }}
               className="sample-data-btn"
             >

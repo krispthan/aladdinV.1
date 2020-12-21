@@ -48,19 +48,6 @@ export const AladdinMultiSelector: React.FC<IMultiSelectorProps> = (
 
   return (
     <>
-      {/* <MDBSelect className="multiple-samples-selector">
-        <MDBSelectInput selected="Choose Samples" />
-        <MDBSelectOptions>
-          {props.selectorList.map((selector, index) => {
-            return (
-              <div key={index} className="d-flex p-2">
-                <MDBInput className="mx-2" type="checkbox" id="checkbox1" />
-                <MDBSelectOption value="1">{selector.title}</MDBSelectOption>
-              </div>
-            );
-          })}
-        </MDBSelectOptions>
-      </MDBSelect> */}
       <Controller
         name={props.name}
         control={props.control}
