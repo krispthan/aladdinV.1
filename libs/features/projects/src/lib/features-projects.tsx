@@ -1,15 +1,15 @@
-import './features-projects.scss';
-import React from 'react';
-import { CreateProject } from './create-project/create-project';
-import { Route } from 'react-router-dom';
-import { AladdinSearchbar } from '@aladdin/ui-kit';
+import "./features-projects.scss";
+import React from "react";
+import { CreateProject } from "./create-project/create-project";
+import { Route } from "react-router-dom";
+import { AladdinSearchbar } from "@aladdin/ui-kit";
 import {
   AppRoute,
   ProjectRoutes,
   SequencerRoute,
-} from '@aladdin/domain-models';
-import ViewProject from './view-project/view-project';
-import { MyProjects } from './my-projects/my-projects';
+} from "@aladdin/domain-models";
+import ViewProject from "./view-project/view-project";
+import { MyProjects } from "./my-projects/my-projects";
 
 /* User should be able to click on the project card to create a new project card
 api to delete the project 
@@ -20,9 +20,6 @@ export interface FeaturesProjectsProps {}
 export const FeaturesProjects = (props: FeaturesProjectsProps) => {
   return (
     <>
-      <div className="d-inline-block">
-        <AladdinSearchbar />
-      </div>
       <Route
         exact
         path={`/${AppRoute.sequencer}/${SequencerRoute.Projects}/`}
