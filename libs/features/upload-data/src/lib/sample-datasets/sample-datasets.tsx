@@ -92,7 +92,7 @@ export const SampleDatasets: React.FC = () => {
     const dropId = dropResult.id;
     const parseDragId = parseId(dragId);
     const parseDropId = parseId(dropId);
-
+    //swap key/value in object
     const tempId = tempData[parseDragId.index][parseDragId.key];
     tempData[parseDragId.index][parseDragId.key] =
       tempData[parseDropId.index][parseDropId.key];

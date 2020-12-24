@@ -3,12 +3,8 @@ import "./my-projects.scss";
 import React, { FormEvent, useEffect, useState } from "react";
 import { AladdinCard, AladdinSearchbar } from "@aladdin/ui-kit";
 import ProjectCard from "../project-card/project-card";
-import { ISearchForm } from "@aladdin/domain-models";
 
 /**Things to do
- * User should be able to search their project and the project should filter
- * The number of cards should be defined on the number of projects we got from the bk to render the number of cards
- * Created a list of cards to map through,
  * Filter the value from the search bar if the value of the search bar is the same as the card name, then show 
  * 
  *

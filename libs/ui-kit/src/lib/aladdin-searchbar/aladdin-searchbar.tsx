@@ -2,19 +2,16 @@ import "./aladdin-searchbar.scss";
 import React, { HTMLAttributes, useEffect, useState } from "react";
 import { MDBIcon } from "mdbreact";
 import { customUseForm } from "@aladdin/shared/forms";
-import { ISearchForm } from "@aladdin/domain-models";
 
 export interface AladdinSearchbarProps extends HTMLAttributes<HTMLElement> {
   dataList: any[];
   handleChange: (value: any[]) => any;
   onCompare: (value, search) => boolean;
+  classes?: string;
 }
 
 /**Things to do
- * Create a test hardness for searching
- *
- * get request for fields to filter when searching
- * reset input using useeffect
+ * Need to implement searchbar across the app
  */
 
 export const AladdinSearchbar: React.FC<AladdinSearchbarProps> = (
@@ -37,7 +34,7 @@ export const AladdinSearchbar: React.FC<AladdinSearchbarProps> = (
     <form className="form-inline search-form d-">
       <div className="d-flex">
         <input
-          className="form-control form-control-sm ml-3 w-100"
+          className={`form-control form-control-sm ml-3 w-100 ${props.classes}`}
           type="text"
           placeholder="Search"
           aria-label="Search"

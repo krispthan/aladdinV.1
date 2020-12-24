@@ -46,6 +46,7 @@ export interface IAladdinTableProps extends HTMLAttributes<HTMLDivElement> {
   sortable?: boolean;
   filter?: string;
   displayEntries?: boolean;
+  entriesLabel?: string;
   entries?: number;
   entriesOptions: number[];
 }
@@ -86,6 +87,7 @@ export const AladdinTables: React.FC<IAladdinTableProps> = (
       <MDBDataTable
         hover
         scrollY
+        entrieslabel={props.entriesLabel}
         striped={props.striped}
         sortable={props.sortable}
         displayEntries={props.displayEntries}

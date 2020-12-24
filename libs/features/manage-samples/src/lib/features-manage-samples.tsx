@@ -83,9 +83,6 @@ export const FeaturesManageSamples: React.FC = () => {
   return (
     <div className="manage-data-container">
       <div className="manage-data-header-container d-flex">
-        <div className="d-inline-block">
-          <AladdinSearchbar />
-        </div>
         <div className="d-flex">
           <h1 className="h1-responsive">Manage Data</h1>
           <MDBIcon
@@ -94,6 +91,9 @@ export const FeaturesManageSamples: React.FC = () => {
             size="lg"
             onClick={toggleModal}
           />
+        </div>
+        <div className="global-search-container">
+          <AladdinSearchbar />
         </div>
       </div>
       {/* Dynamically generate below, if the user doesnt have any data, show the
