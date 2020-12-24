@@ -110,7 +110,6 @@ class MainNavigation extends Component<any> {
                   <MDBDropdownItem>
                     <Link to={`/${AppRoute.settings}/`}>Settings</Link>
                   </MDBDropdownItem>
-
                   <MDBDropdownItem>
                     <Link to={`/${AppRoute.registration}/`}>Registration</Link>
                   </MDBDropdownItem>

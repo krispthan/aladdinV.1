@@ -2,7 +2,7 @@ import "./update-profile.scss";
 import React from "react";
 import { MDBRow, MDBCol } from "mdbreact";
 import { FormValidation, IProfileFormData } from "@aladdin/domain-models";
-import { AladdinButton, AladdinInput } from "@aladdin/ui-kit";
+import { AladdinButton, AladdinInput, EditableTable } from "@aladdin/ui-kit";
 import { customUseForm } from "@aladdin/shared/forms";
 
 /* Things to do:
@@ -119,6 +119,7 @@ export const UpdateProfile: React.FC = () => {
             <AladdinButton classes="update-btn">Update</AladdinButton>
           </div>
         </form>
+        <EditableTable />
       </MDBCol>
     </MDBRow>
   );

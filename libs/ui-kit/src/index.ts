@@ -1,3 +1,4 @@
+export * from "./lib/editable-table/editable-table";
 export * from "./lib/aladdin-radio/aladdin-radio";
 
 export * from "./lib/aladdin-checkbox/aladdin-checkbox";
