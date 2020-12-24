@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
-import { useDrop } from 'react-dnd';
-import './aladdin-droppable.scss';
+import React, { ReactNode } from "react";
+import { useDrop } from "react-dnd";
+import "./aladdin-droppable.scss";
 
 export interface AladdinDroppableProps {
   classes?: string;
@@ -12,7 +12,9 @@ export const AladdinDroppable: React.FC<AladdinDroppableProps> = (
   props: AladdinDroppableProps
 ) => {
   {
-    /* Using React DND useDrop Hook */
+    /* Using React DND useDrop Hoo
+    Will allow us to check which element is being dropped over 
+    k */
     const [{ canDrop, isOver }, drop] = useDrop({
       accept: props.accept,
       drop: () => ({ id: props.id }),

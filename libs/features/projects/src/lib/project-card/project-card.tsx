@@ -16,7 +16,7 @@ export const ProjectCard: React.FC<IProjectCardProps> = (
   props: IProjectCardProps
 ) => {
   return (
-    <AladdinCard classes="project-profile-container mx-3">
+    <AladdinCard noContainer classes="project-profile-container mx-3">
       <div className="plus-container">
         <Link
           to={`/${AppRoute.sequencer}/${SequencerRoute.Projects}/${ProjectRoutes.Create}`}

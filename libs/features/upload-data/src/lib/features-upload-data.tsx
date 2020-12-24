@@ -12,14 +12,7 @@ import {
   ProjectRoutes,
   SequencerRoute,
 } from "@aladdin/domain-models";
-import {
-  MDBTypography,
-  MDBRow,
-  MDBCol,
-  MDBIcon,
-  MDBContainer,
-  MDBInput,
-} from "mdbreact";
+import { MDBTypography, MDBRow, MDBCol, MDBIcon, MDBContainer } from "mdbreact";
 
 import { SequenceReadType } from "@aladdin/domain-models";
 import SampleDatasets from "./sample-datasets/sample-datasets";
@@ -27,7 +20,8 @@ import { Controller, useForm } from "react-hook-form";
 import { FormValidation, IRadioReads } from "@aladdin/domain-models";
 import { customUseForm } from "@aladdin/shared/forms";
 
-export const FeaturesUploadData: React.FC = () => {
+/* Need to hook up search bar when running a get request  */
+export const FeaturesUploadData: React.FC = (): JSX.Element => {
   const { onSubmit, control, register } = customUseForm<IRadioReads>();
 
   const { showModal, toggleModal } = useModal();
@@ -37,6 +31,8 @@ export const FeaturesUploadData: React.FC = () => {
     [SequenceReadType.singleEnd]: true,
     [SequenceReadType.pairedEnd]: false,
   });
+
+  /* Will need to refactor this and put it inside a customize Radio  */
 
   const handleCheckedReads = (clickedRadio: SequenceReadType) => {
     const radios = Object.keys(checkedRadio).reduce(
@@ -75,17 +71,17 @@ export const FeaturesUploadData: React.FC = () => {
   return (
     <div className="upload-wrapper">
       <div className="upload-data-header-container d-flex">
-        <div className="d-inline-block">
+        {/* <div className="d-flex"> */}
+        <h1 className="h1-responsive">Upload Data</h1>
+        <MDBIcon
+          className="d-flex align-items-center mx-2"
+          icon="info-circle"
+          size="lg"
+          onClick={toggleModal}
+        />
+        {/* </div> */}
+        <div className="global-search-container">
           <AladdinSearchbar />
-        </div>
-        <div className="d-flex">
-          <h1 className="h1-responsive">Upload Data</h1>
-          <MDBIcon
-            className="d-flex align-items-center mx-2"
-            icon="info-circle"
-            size="lg"
-            onClick={toggleModal}
-          />
         </div>
       </div>
       {/* Dynamically generate below, if the user doesnt have any data, show the
@@ -148,7 +144,7 @@ export const FeaturesUploadData: React.FC = () => {
               checked={checkedRadio.pairedEnd}
               type="radio"
               id="paired-end"
-              aria-label="-read-option"
+              aria-label="paired-read-option"
               ref={register}
               name="paired-end"
             />

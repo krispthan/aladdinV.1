@@ -1,11 +1,11 @@
-import './account.scss';
-import React from 'react';
-import { AccountRoutes, AppRoute, SettingRoutes } from '@aladdin/domain-models';
-import { AladdinCard } from '@aladdin/ui-kit';
-import { Route } from 'react-router-dom';
-import { UpdateProfile } from '../account/update-profile/update-profile';
-import { Password } from '../account/password-form/password';
-import { AccountMain } from './account-main/account-main';
+import "./account.scss";
+import React from "react";
+import { AccountRoutes, AppRoute, SettingRoutes } from "@aladdin/domain-models";
+import { AladdinCard } from "@aladdin/ui-kit";
+import { Route } from "react-router-dom";
+import { UpdateProfile } from "../account/update-profile/update-profile";
+import { Password } from "../account/password-form/password";
+import { AccountMain } from "./account-main/account-main";
 
 /**** My Account page should display two links:
  *  Update Profile and the corresponding route to page
@@ -21,9 +21,7 @@ export const Account: React.FC = () => {
         component={() => {
           return (
             <>
-              <h1 className="pb-3 px-5 mx-auto d-inline-block">
-                Account Profile
-              </h1>
+              <h1 className="mx-auto d-inline-block">Account Profile</h1>
               <AccountMain />
             </>
           );
